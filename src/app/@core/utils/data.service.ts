@@ -37,6 +37,7 @@ export class DataService {
  
   constructor(private http: HttpService, private toastrService: NbToastrService, public router: Router) { }
 
+  /*
   checkPrintingStatus(){
     this.http.checkPrinterUrl(this.veranstalter.printerUrl).subscribe((response) => {
       this.printingStatus = true;
@@ -45,7 +46,7 @@ export class DataService {
       this.printingStatus = false;
     });
   }
-
+*/
   loadVeranstalter(){
     if(this.v_id == 0){
       let veranstalter_id = localStorage.getItem('veranstalter_id');
@@ -58,7 +59,7 @@ export class DataService {
       }
     }
 
-    let authRequest = new Promise<void>((resolve, reject) => {
+    /*let authRequest = new Promise<void>((resolve, reject) => {
       this.http.findVeranstalterById(this.v_id).subscribe((veranstalter: Veranstalter)=> {
         this.qrcode = "https://bestellung.table-dealer.com/pages/dashboard?veranstalter=" + veranstalter.id;
         this.veranstalter = veranstalter;
@@ -66,9 +67,10 @@ export class DataService {
       })
     });
 
-    return authRequest;
+    return authRequest;*/
   }
 
+  /*
   loadCategoriesOfVeranstalter(){
     this.http.findCategoriesByVeranstalter(this.veranstalter.id).subscribe((data) =>{
       this.categoryList = data;
@@ -216,6 +218,7 @@ export class DataService {
     })
   }
 
+  */
 
   showToast(status, text, position) {
     this.toastrService.show('', text, { position, status });

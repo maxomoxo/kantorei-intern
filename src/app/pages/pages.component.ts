@@ -18,12 +18,14 @@ export class PagesComponent {
   menu = MENU_ITEMS;
 
   constructor(private data: DataService){
-    this.data.loadVeranstalter().then(() => {
+    
+    this.data.loadVeranstalter();
+    /*then(() => {
       this.data.loadArtikelOfVeranstalter();
       this.data.loadCategoriesOfVeranstalter();
       this.data.loadBestellungenOfVeranstalter();
       this.data.loadKellnerOfVeranstalter();
       this.data.checkPrintingStatus();
-    });
+    });*/
   }
 }

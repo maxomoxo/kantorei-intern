@@ -12,6 +12,7 @@ import { OrdersChartComponent } from './e-commerce/charts-panel/charts/orders-ch
 import { OrdersComponent } from './orders/orders.component';
 import { ConfigComponent } from './config/config.component';
 import { NbLoginComponent } from '@nebular/auth';
+import { SignalchatComponent } from './signalchat/signalchat.component';
 
 const routes: Routes = [{
   path: '',
@@ -40,6 +41,10 @@ const routes: Routes = [{
     {
       path: 'config',
       component: ConfigComponent,
+    },
+    {
+      path: 'signalchat',
+      component: SignalchatComponent,
     },
     /*
     {

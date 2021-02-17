@@ -17,6 +17,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { ConfigComponent } from './config/config.component';
 import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
+import { SignalchatComponent } from './signalchat/signalchat.component';
+import { SignalchatModule } from './signalchat/signalchat.module';
 
 @NgModule({
   imports: [
@@ -41,6 +43,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     NbFormFieldModule,
     NbIconModule,
     FormsModule,
+    HelpModule,
+    SignalchatModule,
     QRCodeModule
   ],
   declarations: [

@@ -16,7 +16,7 @@ import { AuthDTO } from "../models/dto/auth";
 })
 export class HttpService {
 
-  SERVER_URL = "https://api.o-zapft.at";
+  SERVER_URL = 'http://localhost:8080';
   token;
   headers;
   kellner;
@@ -25,10 +25,10 @@ export class HttpService {
   }
 
   getToken(veranstalter: Veranstalter): Observable<AuthDTO>{
-    return this.http.post<AuthDTO>(this.SERVER_URL + '/api/veranstalter/jwt', veranstalter);
+    return this.http.post<AuthDTO>(this.SERVER_URL + '/api/mitglied/jwt', veranstalter);
   }
 
-
+  
   findArtikelByVeranstalter(id: number): Observable<Artikel[]> {
     let token = localStorage.getItem('token');
     if ( token ) {
@@ -230,4 +230,6 @@ export class HttpService {
       return this.http.get<Bestellung>(this.SERVER_URL + '/api/bestellung/print/' + id, { headers: headers });
     }
   }
+
+  
 }

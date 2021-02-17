@@ -26,6 +26,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Signalchat',
+    icon: 'person-outline',
+    link: '/pages/signalchat',
+    home: true,
+  },
+  {
     title: 'Hilfe und FAQ',
     icon: 'question-mark-outline',
     link: '/pages/help',

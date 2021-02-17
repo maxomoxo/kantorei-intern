@@ -1,0 +1,8 @@
+<nb-list *ngIf="currentList.length > 0">
+    <nb-list-item *ngFor="let ba of currentList">
+      <p>{{ ba.menge }}x {{ ba.artikel.name }} {{ ba.artikel.preis | currency:'EUR'}}</p>
+    </nb-list-item>
+    <nb-list-item>
+        <b>Gesamtsumme: {{ gesamtsumme | currency:'EUR' }}</b>
+    </nb-list-item>
+</nb-list>

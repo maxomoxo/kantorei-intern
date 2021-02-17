@@ -1,0 +1,17 @@
+
+<div class="row">
+    <div class="col-md-12 col-lg-6 col-xxxl-6" *ngFor="let b of data.bestellungList">
+        <nb-card size="medium" [status]="getStatus(b)">
+            <nb-card-header>Bestellzeit: {{b.bestellzeit | date:'medium'}}</nb-card-header>
+            <nb-card-body>
+                <ngx-order-detail [bestellung]="b"></ngx-order-detail>
+            </nb-card-body>
+            <nb-card-footer class="d-flex justify-content-center flex-column" >
+                <p class="mt-2">Tischnummer: {{b.tischnr}}, Name: {{b.name}}</p>
+                <button *ngIf="!b.printed" class="mt-2" nbButton (click)="printBestellungManually(b)">
+                    Bestellung ausgeliefert
+                </button>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

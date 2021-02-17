@@ -1,0 +1,24 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <img (click)="navigateHome()" src="../../../../assets/images/logo_new_plain@4x.png" height="40vh"  class="ml-2">
+    
+  </div>
+  <!--<nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
+  </nb-select> -->
+</div>
+
+<div class="header-container">
+  <button nbButton (click)="toggleTheme()"ghost><nb-icon [icon]="iconstatus"></nb-icon></button>
+  <nb-actions size="small">
+  
+    <nb-action class="control-item portal">Veranstalterportal</nb-action>
+    <nb-action class="user-action" *ngIf="data.veranstalter" [nbContextMenu]="menuItems">
+      <nb-user [name]="data.veranstalter.name">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>

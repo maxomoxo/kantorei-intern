@@ -9,6 +9,15 @@
             
             <form class="step-container d-flex flex-column">
               <h5>Deine aktuelle Bestellung</h5>
+              <p class="lorem">
+                Bitte gib hier deine Telefonnummer ein (mit Vorwahl).
+              </p>
+              <div class="input-group">
+                <input maxlength="15" type="text" [(ngModel)]="data.signalreq.telnumber" placeholder="+43" class="form-control" formControlName="secondNr">
+              </div>
+
+               
+              
               <!---
               <nb-list *ngIf="data.bestellartikel.length > 0">
                 <nb-list-item class="" *ngFor="let ba of data.bestellartikel">
@@ -50,7 +59,7 @@
               
               <p *ngIf="data.bestellartikel.length == 0">Noch keine Artikel hinzugefügt. Wähle bitte Artikel aus der Artikelliste.</p>
             -->
-              <button class="m-2" nbButton nbStepperNext>Weiter</button>
+              <button class="m-2" nbButton (click)="firstSubmit()" nbStepperNext>Weiter</button>
             </form>
           </nb-step>
           <nb-step [stepControl]="secondForm" label="Schritt 2">

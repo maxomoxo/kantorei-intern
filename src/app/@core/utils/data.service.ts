@@ -8,6 +8,7 @@ import { Kategorie } from '../models/kategorie';
 import { Kellner } from '../models/kellner';
 import { Veranstalter } from '../models/veranstalter';
 import { HttpService } from './http.service';
+import { Signalreq } from '../models/signalreq';
 
 interface CardSettings {
   title: string;
@@ -20,6 +21,11 @@ interface CardSettings {
   providedIn: 'root'
 })
 export class DataService {
+  public veranstalterId: string;
+  public signalreq: Signalreq = {
+    telnumber: "+436767411900"
+  }
+
   public arikelList: Array<Artikel>;
   public categoryList: Array<Kategorie>;
   public v_id = 0;

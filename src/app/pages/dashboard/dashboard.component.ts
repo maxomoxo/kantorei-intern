@@ -65,6 +65,7 @@ export class DashboardComponent{
       };
   }
 
+  /*
   onSaveConfirm(event): void {
     if(event.newData.name != "" && event.newData.preis != "" && event.newData.kategorie != ""){
       let eventKategorie: Kategorie = {
@@ -135,4 +136,5 @@ export class DashboardComponent{
       event.confirm.reject();
     }
   }
+  */
 }

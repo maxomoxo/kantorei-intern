@@ -40,6 +40,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*
   onSaveConfirm(event): void {
     if (event.newData.name != "") {
       let kategorie: Kategorie = {
@@ -88,4 +89,5 @@ export class CategoriesComponent implements OnInit {
       event.confirm.reject();
     }
   }
+  */
 }

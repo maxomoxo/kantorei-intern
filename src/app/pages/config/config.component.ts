@@ -51,6 +51,7 @@ export class ConfigComponent implements OnInit {
     })
   }
 
+  /*
   selfCheckout(){
     this.data.veranstalter.selfCheckout = !this.data.veranstalter.selfCheckout;
     this.updateVeranstalter();
@@ -118,4 +119,5 @@ export class ConfigComponent implements OnInit {
       event.confirm.reject();
     }
   }
+  */
 }

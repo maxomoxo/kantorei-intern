@@ -16,6 +16,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*
   getStatus(b: Bestellung){
     if(b.printed == true){
       return 'primary';
@@ -32,4 +33,5 @@ export class OrdersComponent implements OnInit {
       this.data.showToast('success', 'Bestellung abgeschlossen!', 'bottom-right')
     })
   }
+  */
 }

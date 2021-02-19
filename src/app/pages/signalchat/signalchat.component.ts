@@ -15,6 +15,7 @@ import { DataService } from "../../@core/utils/data.service";
 })
 export class SignalchatComponent {
   
+  firstForm: FormGroup;
   secondForm: FormGroup;
   thirdForm: FormGroup;
 
@@ -26,6 +27,10 @@ export class SignalchatComponent {
       secondNr: ['', Validators.required],
       secondName: ['', Validators.required],
     });
+  }
+
+  firstSubmit() {
+    
   }
 
   onSecondSubmit() {

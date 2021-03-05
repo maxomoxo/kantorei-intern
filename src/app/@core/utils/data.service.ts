@@ -9,6 +9,7 @@ import { Kellner } from '../models/kellner';
 import { Veranstalter } from '../models/veranstalter';
 import { HttpService } from './http.service';
 import { Signalreq } from '../models/signalreq';
+import { Signalreg } from '../models/singalreg';
 
 interface CardSettings {
   title: string;
@@ -24,6 +25,10 @@ export class DataService {
   public veranstalterId: string;
   public signalreq: Signalreq = {
     telnumber: "+436767411900"
+  }
+  public signalreg: Signalreg = {
+    "captcha": "",
+    "use_voice": false
   }
 
   public arikelList: Array<Artikel>;

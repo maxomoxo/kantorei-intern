@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule, NbBadgeModule, NbInputModule, NbIconModule, NbTreeGridModule, NbCardModule, NbListModule, NbButtonModule, NbFormFieldModule } from '@nebular/theme';
+import { NbMenuModule, NbBadgeModule, NbInputModule, NbIconModule, NbTreeGridModule, NbCardModule, NbListModule, NbButtonModule, NbFormFieldModule, NbChatModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
 import { SignalchatComponent } from './signalchat/signalchat.component';
 import { SignalchatModule } from './signalchat/signalchat.module';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { SignalchatModule } from './signalchat/signalchat.module';
     Ng2SmartTableModule,
     NbListModule,
     NbButtonModule,
+    NbChatModule,
     NbInputModule,
     NbFormFieldModule,
     NbIconModule,
@@ -53,6 +55,7 @@ import { SignalchatModule } from './signalchat/signalchat.module';
     OrdersComponent,
     OrderDetailComponent,
     ConfigComponent,
+    ChatComponent,
   ],
 })
 export class PagesModule {

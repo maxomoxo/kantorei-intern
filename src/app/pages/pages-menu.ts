@@ -32,6 +32,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Chat',
+    icon: 'grid-outline',
+    link: '/pages/chat',
+    home: true,
+  },
+  {
     title: 'Hilfe und FAQ',
     icon: 'question-mark-outline',
     link: '/pages/help',

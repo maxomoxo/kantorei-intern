@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { HttpService } from "../../@core/utils/http.service";
 import { DataService } from "../../@core/utils/data.service";
 
-
 @Component({
   selector: "ngx-signalchat",
   styleUrls: ["./signalchat.component.scss"],
@@ -19,7 +18,11 @@ export class SignalchatComponent {
   secondForm: FormGroup;
   thirdForm: FormGroup;
 
+  
+  messages: any[];
+
   constructor(private router: Router, private http: HttpService,private fb: FormBuilder, public data: DataService) {
+    
   }
 
   ngOnInit() {
@@ -30,7 +33,15 @@ export class SignalchatComponent {
   }
 
   firstSubmit() {
-    
+    this.http.regNumber(this.data.signalreq, this.data.signalreg).subscribe(() => {
+      console.log("sent");
+    });
+  }
+
+  secondSubmit() {
+    this.http.verifyNumber(this.data.signalreq).subscribe(() => {
+      console.log("verify ok");
+    });
   }
 
   onSecondSubmit() {
@@ -48,10 +59,6 @@ export class SignalchatComponent {
    }
  }
 
-  
-
-
-
   resetStepper(){
     
   }
@@ -60,5 +67,10 @@ export class SignalchatComponent {
   backToDash() {
     this.router.navigate(['pages/dashboard'])
   }
+
+
+
 }
+
+
 

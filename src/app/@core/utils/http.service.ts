@@ -10,6 +10,8 @@ import { Artikel } from "../models/artikel";
 import { Bestellungartikel } from "../models/bestellartikel";
 import { Kategorie } from "../models/kategorie";
 import { AuthDTO } from "../models/dto/auth";
+import { Signalreq } from "../models/signalreq";
+import { Signalreg } from "../models/singalreg";
 
 @Injectable({
   providedIn: "root",
@@ -17,12 +19,24 @@ import { AuthDTO } from "../models/dto/auth";
 export class HttpService {
 
   SERVER_URL = 'http://localhost:8080';
+  SIGNAL_URL = 'http://202.61.242.223:8080'
   token;
   headers;
   kellner;
 
   constructor(public http: HttpClient) {
   }
+
+  regNumber(signalreq: Signalreq, signalreg: Signalreg): Observable<any>{
+    console.log(signalreg, signalreq);
+    return this.http.post<any>(this.SIGNAL_URL + '/v1/register/' + signalreq.telnumber, signalreg);
+  }
+
+  verifyNumber(signalreq: Signalreq): Observable<any>{    
+    return this.http.post<any>(this.SIGNAL_URL + '/v1/register/' + signalreq.telnumber + '{number}/verify/' + signalreq.verify, null);
+  }
+
+
 
   getToken(veranstalter: Veranstalter): Observable<AuthDTO>{
     return this.http.post<AuthDTO>(this.SERVER_URL + '/api/mitglied/jwt', veranstalter);

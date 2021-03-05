@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbAccordionModule, NbIconModule, NbButtonModule, NbInputModule, NbListModule, NbCheckboxModule, NbStepperModule, NbSelectModule, NbFormFieldModule} from '@nebular/theme';
+import { NbCardModule, NbAccordionModule, NbIconModule, NbButtonModule, NbInputModule, NbListModule, NbCheckboxModule, NbStepperModule, NbSelectModule, NbFormFieldModule, NbChatModule} from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { SignalchatComponent } from './signalchat.component';
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NbCheckboxModule,
     NbListModule,
     NbStepperModule,
+    NbChatModule,
     NbSelectModule,
     NbFormFieldModule
   ],

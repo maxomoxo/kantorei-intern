@@ -88,7 +88,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout(title): void {
     if(title.item.title == 'Logout'){
       localStorage.removeItem('token');
-      localStorage.removeItem('veranstalter_id')
+      localStorage.removeItem('mitglied_id')
   
       this.router.navigate(['/login']);
     }

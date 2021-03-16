@@ -19,7 +19,7 @@ export class PagesComponent {
 
   constructor(private data: DataService){
     
-    this.data.loadVeranstalter();
+    this.data.loadMitglied();
     /*then(() => {
       this.data.loadArtikelOfVeranstalter();
       this.data.loadCategoriesOfVeranstalter();

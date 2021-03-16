@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpService } from 'app/@core/utils/http.service';
 
 import { ChatService } from './chat.service';
 
@@ -12,7 +13,7 @@ export class ChatComponent {
 
   messages: any[];
 
-  constructor(protected chatService: ChatService) {
+  constructor(protected chatService: ChatService, private http: HttpService) {
     this.messages = this.chatService.loadMessages();
   }
 
@@ -25,6 +26,10 @@ export class ChatComponent {
       };
     });
 
+    this.http.sendTeleMessage(event.message).subscribe(() => {
+      console.log("sent");
+    });
+
     this.messages.push({
       text: event.message,
       date: new Date(),
@@ -32,7 +37,7 @@ export class ChatComponent {
       type: files.length ? 'file' : 'text',
       files: files,
       user: {
-        name: 'Jonh Doe',
+        name: 'admin',
         avatar: 'https://i.gifer.com/no.gif',
       },
     });

@@ -1,6 +1,7 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
+  /*
   {
     title: 'Meine Produkte',
     icon: 'shopping-cart-outline',
@@ -18,11 +19,23 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'grid-outline',
     link: '/pages/orders',
     home: true,
+  },*/
+  {
+    title: 'Home',
+    icon: 'home-outline',
+    link: '/pages/home',
+    home: true,
   },
   {
-    title: 'Veranstaltungskonfiguration',
-    icon: 'person-outline',
-    link: '/pages/config',
+    title: 'Kalender',
+    icon: 'calendar-outline',
+    link: '/pages/kalender',
+    home: true,
+  },
+  {
+    title: 'Audio',
+    icon: 'headphones-outline',
+    link: '/pages/audio',
     home: true,
   },
   {

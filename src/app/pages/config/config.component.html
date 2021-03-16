@@ -1,3 +1,126 @@
+
+<div class="row">
+    <div class="col-lg-6">
+        <nb-card>
+            <nb-card-header>
+                <span class="h3 location"> Herzlich Willkommen {{ data.mitglied.name }} </span> 
+                auf der Internen Seite der Kantorei Leonfelden!
+               
+            </nb-card-header>
+            <nb-card-body class="d-flex flex-row">
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+    <div class="col-lg-6">
+        <nb-card size="medium">
+            <nb-card-body>
+              <span class="h3 location">Bad Leonfelden</span>
+              <span class="date">Mon 29 May</span>
+          
+              <div class="today">
+                <span class="today-temperature h1">20&deg;</span>
+                <nb-icon icon="sun-outline" pack="eva" class="today-icon"></nb-icon>
+              </div>
+          
+              <div class="today-details">
+                <div class="parameter">
+                  <span class="caption parameter-name">max</span>
+                  <span class="parameter-value">23&deg;</span>
+                </div>
+                <div class="parameter">
+                  <span class="caption parameter-name">min</span>
+                  <span class="parameter-value">19&deg;</span>
+                </div>
+                <div class="parameter">
+                  <span class="caption parameter-name">wind</span>
+                  <span class="parameter-value">4 km/h</span>
+                </div>
+                <div class="parameter">
+                  <span class="caption parameter-name">hum</span>
+                  <span class="parameter-value">87%</span>
+                </div>
+              </div>
+          
+              <div class="weekly-forecast">
+                <div class="day">
+                  <span class="caption">Sun</span>
+                  <i class="weather-icon ion-ios-cloudy-outline"></i>
+                  <span class="temperature">17&deg;</span>
+                </div>
+                <div class="day">
+                  <span class="caption">Mon</span>
+                  <i class="weather-icon ion-ios-sunny-outline"></i>
+                  <span class="temperature">19&deg;</span>
+                </div>
+                <div class="day">
+                  <span class="caption">Tue</span>
+                  <i class="weather-icon ion-ios-rainy-outline"></i>
+                  <span class="temperature">22&deg;</span>
+                </div>
+                <div class="day">
+                  <span class="caption">Wed</span>
+                  <i class="weather-icon ion-ios-partlysunny-outline"></i>
+                  <span class="temperature">21&deg;</span>
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
+          
+    </div>
+    <div class="col-lg-6">
+        <!--<nb-card>
+            <nb-card-header>Aktuelle Infos</nb-card-header>
+            <nb-card-body>
+                <div class="elfsight-app-9dd299c1-e72b-4cff-a837-24535d566ba9"></div>
+            </nb-card-body>
+            <nb-card-body>
+                <ng2-smart-table [settings]="data.kellnerSettings" [source]="data.kellnerList"
+                    (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onEditConfirm($event)"
+                    (createConfirm)="onSaveConfirm($event)"></ng2-smart-table>
+            </nb-card-body>
+        </nb-card>-->
+            <ngx-contacts></ngx-contacts>
+          
+    </div>
+
+
+
+
+    <!--<div class="col-lg-6">
+        <nb-card >
+            <div class="picture" style.background-image="url('../../../assets/images/lee.png')"></div>
+
+            <div class="details">
+                <div class="h4">UI Kitten</div>
+                <div class="description">
+                    UI Kitten is a framework that contains a set of commonly used UI components styled in a similar way.
+                    The most awesome thing: you can change themes on the fly by just passing a different set of
+                    variables. 100% native. Give our kitten a try!
+                </div>
+            </div>
+
+            <nb-card-footer>
+                <a href="https://akveo.github.io/react-native-ui-kitten?utm_campaign=ui_kitten%20-%20home%20-%20ngx_admin%20code%20embed&utm_source=ngx_admin&utm_medium=embedded&utm_content=iot_dashboard_kitten_card"
+                    target="_blank">
+                    <nb-icon icon="globe" pack="eva"></nb-icon>
+                </a>
+                <a href="https://itunes.apple.com/us/app/kitten-tricks/id1246143230" target="_blank">
+                    <i class="link-icon ion-social-apple"></i>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.akveo.kittenTricks" target="_blank">
+                    <i class="link-icon ion-social-android"></i>
+                </a>
+                <a href="https://github.com/akveo/react-native-ui-kitten" target="_blank">
+                    <nb-icon icon="github" pack="eva"></nb-icon>
+                </a>
+            </nb-card-footer>
+        </nb-card>
+    </div>-->
+</div>
+
+
 <!--
 <div class="row">
     <div class="col-lg-6">

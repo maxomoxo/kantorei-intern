@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AudioComponent } from 'app/pages/audio/audio.component';
 
 export class Track {
   name: string;
@@ -9,6 +10,10 @@ export class Track {
 
 @Injectable()
 export class PlayerService {
+
+  constructor (){
+
+  }
   current: number;
   playlist: Track[] = [
     {
@@ -28,7 +33,13 @@ export class PlayerService {
       artist: 'Beatles',
       url: 'https://p.scdn.co/mp3-preview/83090a4db6899eaca689ae35f69126dbe65d94c9',
       cover: 'assets/images/cover3.jpg',
-    },
+    },/*
+    {
+      name: 'Recording',
+      artist: 'Admin',
+      url: this.audio.sanitize(this.audio.url).toString(),
+      cover: 'assets/images/cover3.jpg',
+    },*/
   ];
 
   random(): Track {
@@ -42,6 +53,10 @@ export class PlayerService {
 
   prev() {
     return this.getPrevTrack();
+  }
+
+  createNewTrack(newTrack: Track){
+    this.playlist.push(newTrack);
   }
 
   private getNextTrack(): Track {

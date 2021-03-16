@@ -12,6 +12,7 @@ import { Kategorie } from "../models/kategorie";
 import { AuthDTO } from "../models/dto/auth";
 import { Signalreq } from "../models/signalreq";
 import { Signalreg } from "../models/singalreg";
+import { Mitglied } from "../models/mitglied";
 
 @Injectable({
   providedIn: "root",
@@ -19,7 +20,9 @@ import { Signalreg } from "../models/singalreg";
 export class HttpService {
 
   SERVER_URL = 'http://localhost:8080';
-  SIGNAL_URL = 'http://202.61.242.223:8080'
+  SIGNAL_URL = 'http://202.61.242.223:8080'  
+  TELEGRAM_URL = 'https://api.telegram.org/bot1604480326:AAF883sbZwVfGBVRfyEPWxu5DOHv8gPn7pk'
+
   token;
   headers;
   kellner;
@@ -36,10 +39,24 @@ export class HttpService {
     return this.http.post<any>(this.SIGNAL_URL + '/v1/register/' + signalreq.telnumber + '{number}/verify/' + signalreq.verify, null);
   }
 
+  sendTeleMessage(msg : String) : Observable<any> {
+    return this.http.get<any>(this.TELEGRAM_URL + '/sendMessage?chat_id=-534300156&text=' + msg);
+  }
 
 
-  getToken(veranstalter: Veranstalter): Observable<AuthDTO>{
-    return this.http.post<AuthDTO>(this.SERVER_URL + '/api/mitglied/jwt', veranstalter);
+
+  getToken(mitglied: Mitglied): Observable<AuthDTO>{
+    return this.http.post<AuthDTO>(this.SERVER_URL + '/api/mitglied/jwt', mitglied);
+  }
+
+
+  findMitgliedById(id): Observable<Mitglied> {
+    let token = localStorage.getItem('token');
+
+    if ( token ) {
+      let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+      return this.http.get<Mitglied>(this.SERVER_URL + '/api/mitglied/' + id, { headers: headers });
+    }
   }
 
   

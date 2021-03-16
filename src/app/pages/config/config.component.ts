@@ -32,10 +32,10 @@ export class ConfigComponent implements OnInit {
       },
       columns: {
         email: {
-          title: 'Email'
+          title: 'Info'
         },
         passwort: {
-          title: 'Passwort'
+          title: 'Datum'
         }
       }
     };

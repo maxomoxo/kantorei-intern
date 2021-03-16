@@ -14,6 +14,8 @@ import { ChatComponent } from './chat/chat.component'
 import { ConfigComponent } from './config/config.component';
 import { NbLoginComponent } from '@nebular/auth';
 import { SignalchatComponent } from './signalchat/signalchat.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { AudioComponent } from './audio/audio.component';
 
 const routes: Routes = [{
   path: '',
@@ -44,8 +46,16 @@ const routes: Routes = [{
       component: ChatComponent,
     },
     {
-      path: 'config',
+      path: 'home',
       component: ConfigComponent,
+    },
+    {
+      path: 'kalender',
+      component: CalendarComponent,
+    },
+    {
+      path: 'audio',
+      component: AudioComponent,
     },
     {
       path: 'signalchat',

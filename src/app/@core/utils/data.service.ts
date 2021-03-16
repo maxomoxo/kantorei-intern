@@ -10,6 +10,7 @@ import { Veranstalter } from '../models/veranstalter';
 import { HttpService } from './http.service';
 import { Signalreq } from '../models/signalreq';
 import { Signalreg } from '../models/singalreg';
+import { Mitglied } from '../models/mitglied';
 
 interface CardSettings {
   title: string;
@@ -43,9 +44,14 @@ export class DataService {
   printingStatus = false;
   qrcode = "https://bestellung.table-dealer.com/pages/dashboard?veranstalter=0";
 
-  public veranstalter: Veranstalter = null;  
+  public veranstalter: Veranstalter = null;
+  public mitglied: Mitglied = {
+    name: "",
+    email: "",
+    passwort: ""
+  };
 
- 
+
   constructor(private http: HttpService, private toastrService: NbToastrService, public router: Router) { }
 
   /*
@@ -58,14 +64,37 @@ export class DataService {
     });
   }
 */
-  loadVeranstalter(){
-    if(this.v_id == 0){
+
+  loadMitglied() {
+    if (this.v_id == 0) {
+      let mitglied_id = localStorage.getItem('mitglied_id');
+
+      if (mitglied_id) {
+        this.v_id = parseInt(mitglied_id);
+      }
+      else {
+        this.router.navigate(['/login']);
+      }
+    }
+    let authRequest = new Promise<void>((resolve, reject) => {
+      this.http.findMitgliedById(this.v_id).subscribe((mitglied: Mitglied)=> {
+        this.qrcode = "https://bestellung.table-dealer.com/pages/dashboard?veranstalter=" + mitglied.id;
+        this.mitglied = mitglied;
+        resolve();
+      })
+    });
+
+    return authRequest;
+  }
+
+  loadVeranstalter() {
+    if (this.v_id == 0) {
       let veranstalter_id = localStorage.getItem('veranstalter_id');
 
-      if ( veranstalter_id ) {
+      if (veranstalter_id) {
         this.v_id = parseInt(veranstalter_id);
       }
-      else{
+      else {
         this.router.navigate(['/login']);
       }
     }

@@ -8,19 +8,29 @@
           <nb-step label="Schritt 1">
             
             <form class="step-container d-flex flex-column">
-              <h5>Deine aktuelle Bestellung</h5>
+              <h5>Verbinde dein Telefon</h5>
               <p class="lorem">
                 Bitte gib hier deine Telefonnummer ein (mit Vorwahl).
               </p>
               <div class="input-group">
                 <input maxlength="15" type="text" [(ngModel)]="data.signalreq.telnumber" name="first" placeholder="+43" class="form-control" >
               </div>
+              <br><br>
               <p class="lorem">
+                Aktivieren sie das Häckenwenn sie einen Anruf anstatt einer SMS enthalten wollen.
+              </p>
+              
+                <nb-checkbox (checkedChange)="toggle($event)">{{ getToggle() }}</nb-checkbox>
+              
+              
+              
+
+              <!--<p class="lorem">
                 Bitte gib hier deine Captcha ein.
               </p>
               <div class="input-group">
                 <input type="text" [(ngModel)]="data.signalreg.captcha" name="first" placeholder="3AGdBq27uAugEG666-Tsbs_J-2" class="form-control" >
-              </div>
+              </div> -->
 
                
               
@@ -65,10 +75,10 @@
               
               <p *ngIf="data.bestellartikel.length == 0">Noch keine Artikel hinzugefügt. Wähle bitte Artikel aus der Artikelliste.</p>
             -->
-              <button class="m-2" nbButton (click)="firstSubmit()" nbStepperNext>Weiter</button>
+              <button class="m-2" nbButton nbStepperNext>Weiter</button>
             </form>
           </nb-step>
-          <nb-step [stepControl]="secondForm" label="Schritt 2">
+          <nb-step label="Schritt 2">
             <form class="step-container d-flex flex-column">
               <!---<p class="lorem">
                 Bitte gib hier deine Tischnummer ein.
@@ -84,43 +94,42 @@
                 <input maxlength="50" type="text" [(ngModel)]="data.currentBestellung.name" placeholder="Huber" class="form-control" formControlName="secondName">
               </div>
             --->
-            <h5>SMS</h5>
+            <h5>Bot Detection</h5>
+            <p class="lorem">
+              Signal erfordert eine Bestätigung. <a href="https://signalcaptchas.org/registration/generate.html">Link</a>Bitte gib hier deine Captcha ein.
+            </p>
+            <div class="input-group">
+              <input type="text" [(ngModel)]="data.signalreg.captcha" name="first" placeholder="3AGdBq27uAugEG666-Tsbs_J-2" class="form-control" >
+            </div>
+
+            <div class="d-flex flex-row justify-content-between">
+              <button nbButton class="mt-2" nbStepperPrevious>Zurück</button>
+              <button class="m-2" nbButton nbStepperNext>Weiter</button>
+            </div>
+            </form>
+          </nb-step>
+
+          <nb-step [stepControl]="thirdForm" label="Schritt 3">
+            <form class="step-container">             
+            <h5>Bestätige den Code</h5>
               <p class="lorem">
                 Bitte gib hier deine Code ein.
               </p>
               <div class="input-group">
                 <input maxlength="7" type="text" [(ngModel)]="data.signalreq.verify" name="first" placeholder="123-456" class="form-control" >
               </div>
-              <div class="d-flex flex-row justify-content-between">
-                <button nbButton class="mt-2" nbStepperPrevious>Zurück</button>
-                <button nbButton (click)="secondSubmit()" class="mt-2" nbStepperNext>Weiter</button>
-              </div>
-            </form>
-          </nb-step>
-          <nb-step [stepControl]="thirdForm" label="Schritt 3">
-            <form class="step-container">
-              <!--<p class="lorem">
-                Bitte überprüfe deine Bestellung:
-              </p>
-              <h5>Tischnummer: {{data.currentBestellung.tischnr}}</h5>
-
-              <nb-list *ngIf="data.bestellartikel.length > 0">
-                <nb-list-item class="list" *ngFor="let ba of data.bestellartikel">
-                  <p class="mt-2">{{ ba.menge }}x {{ ba.artikel.name }}</p>
-                </nb-list-item>
-              </nb-list>
-            -->
+             
               <div class="d-flex flex-row justify-content-between">
                 <button nbButton class="mt-2" nbStepperPrevious>Zurück</button>
                 <button nbButton class="mt-2" (click)="thirdSubmit()" nbStepperNext>Weiter</button>
               </div>
             </form>
           </nb-step>
-          <nb-step [stepControl]="thirdForm" [hidden]="true" label="Schritt 3">
+          <nb-step [hidden]="true" label="Verlinkt">
             <div class="step-container d-flex flex-column">
-              <h3>Danke für deine Bestellung.</h3>
-              <p>Sie dürfte in Kürze bei dir eintreffen.</p>
-              <button nbButton (click)="backToDash()">Nochmal bestellen.</button>
+              <h3>Du bist jetzt mit Signal verbunden.</h3>
+              <p></p>
+              <button nbButton (click)="backToDash()">Zum Chat</button>
             </div>
           </nb-step>
         </nb-stepper>

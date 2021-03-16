@@ -1,0 +1,32 @@
+
+<div class="row">
+  <div class="col-lg-6">
+      <nb-card>
+          <nb-card-header>
+            Player             
+          </nb-card-header>
+          <nb-card-body class="d-flex flex-row">
+
+            <ngx-player [collapsed]="isCollapsed() && breakpoint.width <= breakpoints.md"></ngx-player>
+          </nb-card-body>
+      </nb-card>
+  </div>
+
+  <div class="col-lg-6">
+      <nb-card size="medium">
+        <nb-card-header>
+          Audio Recorder           
+        </nb-card-header>
+          <nb-card-body>
+            <div style="text-align:center;margin-top: 200px;" >
+              <button nbButton status="success" (click)="initiateRecording()" class="btn btn-primary" *ngIf="!recording"> Start Recording </button>
+              <button nbButton status="danger" (click)="stopRecording()" class="btn btn-danger" *ngIf="recording"> Stop Recording </button>
+              <!--<audio controls="" *ngIf="url">
+              <source [src]="sanitize(url)" type="audio/wav">
+              </audio>-->
+              </div>
+          </nb-card-body>
+        </nb-card>
+        
+  </div>
+</div>

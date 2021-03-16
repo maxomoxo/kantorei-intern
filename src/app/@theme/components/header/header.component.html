@@ -15,9 +15,9 @@
   <button nbButton (click)="toggleTheme()"ghost><nb-icon [icon]="iconstatus"></nb-icon></button>
   <nb-actions size="small">
   
-    <nb-action class="control-item portal">Veranstalterportal</nb-action>
-    <nb-action class="user-action" *ngIf="data.veranstalter" [nbContextMenu]="menuItems">
-      <nb-user [name]="data.veranstalter.name">
+    <nb-action class="control-item portal">Mitgliederportal</nb-action>
+    <nb-action class="user-action" *ngIf="data.mitglied" [nbContextMenu]="menuItems">
+      <nb-user [name]="data.mitglied.name">
       </nb-user>
     </nb-action>
   </nb-actions>

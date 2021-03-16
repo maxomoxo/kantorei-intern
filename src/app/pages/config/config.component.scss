@@ -1,8 +1,81 @@
-@import '../../@theme/styles/themes';
-@import '~@nebular/theme/styles/global/breakpoints';
-@import '~bootstrap/scss/mixins/breakpoints';
+@import "../../@theme/styles/themes";
+@import "~@nebular/theme/styles/global/breakpoints";
+@import "~bootstrap/scss/mixins/breakpoints";
 
 @include nb-install-component() {
+
+  nb-card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .location,
+  .date {
+    display: block;
+  }
+
+  .location {
+    margin-bottom: 0.1rem;
+  }
+
+  .today {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .today-temperature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 1.5rem;
+  }
+
+  .today-icon {
+    color: nb-theme(color-primary-default);
+    font-size: 10rem;
+    line-height: 1;
+    margin-top: -4rem;
+    margin-left: auto;
+    margin-right: 0.4rem;
+  }
+
+  .today-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+
+  .parameter {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .parameter-name,
+  .parameter-value {
+    display: block;
+  }
+
+  .caption {
+    text-transform: uppercase;
+  }
+
+  .weekly-forecast {
+    display: flex;
+    justify-content: space-around;
+    margin: auto 0;
+  }
+
+  .day {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .weather-icon {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  
   .status-card {
     flex-direction: row;
     align-items: center;
@@ -84,27 +157,26 @@
     }
   }
   .full-name-inputs,
-.validation-checkboxes {
-  display: flex;
-  margin: 0 -0.5rem;
+  .validation-checkboxes {
+    display: flex;
+    margin: 0 -0.5rem;
 
-  > * {
-    margin: 0 0.5rem;
+    > * {
+      margin: 0 0.5rem;
+    }
   }
-}
 
-.checkbox-radio {
-  display: flex;
-}
+  .checkbox-radio {
+    display: flex;
+  }
 
-.demo-items {
-  flex: 1 0 33%;
-}
+  .demo-items {
+    flex: 1 0 33%;
+  }
 
-.kellner-disabled{
+  .kellner-disabled {
     pointer-events: none;
     opacity: 0.4;
     filter: blur(4px);
-}
-
+  }
 }

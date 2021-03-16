@@ -21,6 +21,7 @@ export class SignalchatComponent {
   
   messages: any[];
 
+  
   constructor(private router: Router, private http: HttpService,private fb: FormBuilder, public data: DataService) {
     
   }
@@ -32,13 +33,25 @@ export class SignalchatComponent {
     });
   }
 
-  firstSubmit() {
+  toggle(checked: boolean) {
+    this.data.signalreg.use_voice = checked;
+  }
+
+  getToggle() {
+    if (this.data.signalreg.use_voice) {
+      return "Sie werden eine Anruf erhalten"
+    } else {
+      return "Sie werden eine SMS erhalten"
+    }
+  }
+
+  secondSubmit() {
     this.http.regNumber(this.data.signalreq, this.data.signalreg).subscribe(() => {
       console.log("sent");
     });
   }
 
-  secondSubmit() {
+  thirdSubmit() {
     this.http.verifyNumber(this.data.signalreq).subscribe(() => {
       console.log("verify ok");
     });
@@ -48,8 +61,7 @@ export class SignalchatComponent {
     this.secondForm.markAsDirty();
   }
 
-  thirdSubmit() {
-  }
+  
 
   wait(ms){
     var start = new Date().getTime();
@@ -65,7 +77,7 @@ export class SignalchatComponent {
 
 
   backToDash() {
-    this.router.navigate(['pages/dashboard'])
+    this.router.navigate(['pages/chat'])
   }
 
 

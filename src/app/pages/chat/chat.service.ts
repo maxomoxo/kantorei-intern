@@ -19,7 +19,7 @@ export class ChatService {
     const botReply: any =  this.loadBotReplies()
       .find((reply: any) => message.search(reply.regExp) !== -1);
 
-    if (botReply.reply.type === 'quote') {
+    /*if (botReply.reply.type === 'quote') {
       botReply.reply.quote = message;
     }
 
@@ -36,7 +36,21 @@ export class ChatService {
       botReply.reply.files[2].url = imageLinks[Math.floor(Math.random() * imageLinks.length)];
     }
 
-    botReply.reply.text = botReply.answerArray[Math.floor(Math.random() * botReply.answerArray.length)];
+    botReply.reply.text = botReply.answerArray[Math.floor(Math.random() * botReply.answerArray.length)];*/
+
+    botReply.reply.text = message;
+
+    return { ...botReply.reply };
+  }
+
+  replyU(message: string, user: string) {
+    const botReply: any =  this.loadBotReplies()
+      .find((reply: any) => message.search(reply.regExp) !== -1);
+
+    botReply.reply.user.name = user;
+
+    botReply.reply.text = message;
+
     return { ...botReply.reply };
   }
 }

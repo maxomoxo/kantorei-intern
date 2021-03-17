@@ -8,7 +8,7 @@ import { DataService } from '../../@core/utils/data.service';
   selector: 'ngx-chat',
   templateUrl: 'chat.component.html',
   styleUrls: ['chat.component.scss'],
-  providers: [ ChatService ],
+  providers: [ChatService],
 })
 export class ChatComponent {
 
@@ -18,14 +18,33 @@ export class ChatComponent {
     this.messages = this.chatService.loadMessages();
   }
 
-  refreshList() {    
-    this.http.getTeleUpdates().subscribe(data => {this.data.result = data
+  refreshList() {
+    this.http.getTeleUpdates().subscribe(data => {
+      this.data.result = data
+
       console.log(this.data.result);
 
+      /*for (let dataRow of this.data.result["result"]) {
+         for (let dataIn of dataRow) {
+         console.log("seas" + dataIn);
+         }
+       }*/
+
       for (let dataRow of this.data.result["result"]) {
-        console.log("Data Row:" + dataRow);
+
+        console.log("seas" + dataRow.message.text);
+        console.log("name" + dataRow.message.from.first_name);
+        //this.chatService.reply(dataRow.message.text);
+
+
+        const botReply = this.chatService.replyU(dataRow.message.text, dataRow.message.from.first_name);
+        if (botReply) {
+          this.messages.push(botReply); 
+        }
 
       }
+
+
 
     });
   }
@@ -39,15 +58,15 @@ export class ChatComponent {
       };
     });
 
-  
+
     console.log(event.message);
 
     this.http.sendTeleMessage(event.message).subscribe(() => {
-      console.log("sent");      
+      console.log("sent");
     });
 
     this.http.sendTelePhoto(event).subscribe(() => {
-      console.log("sent image");      
+      console.log("sent image");
     });
 
     this.messages.push({
@@ -61,9 +80,15 @@ export class ChatComponent {
         avatar: 'https://i.gifer.com/no.gif',
       },
     });
-    const botReply = this.chatService.reply(event.message);
+
+    //this.messages.push();
+    //this.chatService.reply()
+
+    /*const botReply = this.chatService.reply(event.message);
     if (botReply) {
       setTimeout(() => { this.messages.push(botReply); }, 500);
-    }
+    }*/
+
+    setInterval(()=> { this.refreshList() }, 10000);
   }
 }

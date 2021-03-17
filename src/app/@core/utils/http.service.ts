@@ -43,7 +43,13 @@ export class HttpService {
     return this.http.get<any>(this.TELEGRAM_URL + '/sendMessage?chat_id=-534300156&text=' + msg);
   }
 
+  sendTelePhoto(msg : String) : Observable<any> {
+    return this.http.get<any>(this.TELEGRAM_URL + '/sendPhoto?chat_id=-534300156&photo=' + msg);
+  }
 
+  getTeleUpdates() : Observable<any> {
+    return this.http.get<any>(this.TELEGRAM_URL + '/getUpdates?chat_id=-534300156');
+  }
 
   getToken(mitglied: Mitglied): Observable<AuthDTO>{
     return this.http.post<AuthDTO>(this.SERVER_URL + '/api/mitglied/jwt', mitglied);

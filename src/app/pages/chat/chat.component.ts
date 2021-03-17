@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpService } from 'app/@core/utils/http.service';
 
 import { ChatService } from './chat.service';
+import { DataService } from '../../@core/utils/data.service';
 
 @Component({
   selector: 'ngx-chat',
@@ -13,8 +14,20 @@ export class ChatComponent {
 
   messages: any[];
 
-  constructor(protected chatService: ChatService, private http: HttpService) {
+  constructor(protected chatService: ChatService, private http: HttpService, private data: DataService) {
     this.messages = this.chatService.loadMessages();
+  }
+
+  refreshList() {    
+    this.http.getTeleUpdates().subscribe(data => {this.data.result = data
+      console.log(this.data.result);
+
+      for (let dataRow of this.data.result["result"]) {
+        console.log("Data Row:" + dataRow);
+
+      }
+
+    });
   }
 
   sendMessage(event: any) {
@@ -26,8 +39,15 @@ export class ChatComponent {
       };
     });
 
+  
+    console.log(event.message);
+
     this.http.sendTeleMessage(event.message).subscribe(() => {
-      console.log("sent");
+      console.log("sent");      
+    });
+
+    this.http.sendTelePhoto(event).subscribe(() => {
+      console.log("sent image");      
     });
 
     this.messages.push({

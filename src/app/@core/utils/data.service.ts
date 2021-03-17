@@ -23,6 +23,9 @@ interface CardSettings {
   providedIn: 'root'
 })
 export class DataService {
+
+  public result;
+  
   public veranstalterId: string;
   public signalreq: Signalreq = {
     telnumber: "+436767411900"

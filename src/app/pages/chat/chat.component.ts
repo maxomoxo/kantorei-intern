@@ -89,6 +89,6 @@ export class ChatComponent {
       setTimeout(() => { this.messages.push(botReply); }, 500);
     }*/
 
-    setInterval(()=> { this.refreshList() }, 10000);
+    //setInterval(()=> { this.refreshList() }, 10000);
   }
 }

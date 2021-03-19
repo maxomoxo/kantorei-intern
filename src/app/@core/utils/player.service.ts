@@ -17,14 +17,14 @@ export class PlayerService {
   current: number;
   playlist: Track[] = [
     {
-      name: 'Don\'t Wanna Fight',
-      artist: 'Alabama Shakes',
+      name: 'Stimmprobe 1',
+      artist: 'Heiko Hochegger',
       url: 'https://p.scdn.co/mp3-preview/6156cdbca425a894972c02fca9d76c0b70e001af',
       cover: 'assets/images/cover1.jpg',
     },
     {
-      name: 'Harder',
-      artist: 'Daft Punk',
+      name: 'Test record31',
+      artist: 'Lukas Mayer',
       url: 'https://p.scdn.co/mp3-preview/92a04c7c0e96bf93a1b1b1cae7dfff1921969a7b',
       cover: 'assets/images/cover2.jpg',
     },

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Mitglied } from 'app/@core/models/mitglied';
-import { Veranstalter } from 'app/@core/models/veranstalter';
 import { DataService } from 'app/@core/utils/data.service';
 import { HttpService } from 'app/@core/utils/http.service';
 

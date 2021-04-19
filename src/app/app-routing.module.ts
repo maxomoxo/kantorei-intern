@@ -1,7 +1,5 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { NbLoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './@core/utils/auth-guard.service';
 
